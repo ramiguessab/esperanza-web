@@ -18,7 +18,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <div className="w-full h-16 bg-background2  shadow-2xl shadow-background3 text-white">
-                    <img src="./assets/esperanza_logo (no bg).png" alt="esperanzalogo" width={70} className="ml-28"/></div>
+                    <img src="./assets/esperanza_logo (no bg).png" alt="esperanzalogo" width={70} className="ml-10 md:ml-28"/></div>
                 {children}
             </body>
         </html>
