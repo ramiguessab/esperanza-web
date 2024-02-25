@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import NavigationBar from "@/components/shared/NavigationBar"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -17,8 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <div className="w-full h-16 bg-background2  shadow-2xl shadow-background3 text-white">
-                    <img src="./assets/esperanza_logo (no bg).png" alt="esperanzalogo" width={70} className="ml-10 md:ml-28"/></div>
+                <NavigationBar />
                 {children}
             </body>
         </html>
