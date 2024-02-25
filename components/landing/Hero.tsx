@@ -18,9 +18,9 @@ const words = [
 
 export default function Hero() {
     return (
-        <div className="max-w-screen-xl mx-auto py-16">
+        <div className="max-w-screen-xl mx-auto table w-screen py-16">
             {/* <BoxesCore /> */}
-            <div className=" lg:flex lg:flex-row flex flex-col-reverse items-center md:justify-between  justify-center h-full">
+            <div className=" lg:flex lg:flex-row flex flex-col-reverse items-center md:justify-between  h-full">
                 <div className="">
                     <h1 className=" text-4xl md:text-5xl font-bold">
                         ESPERANZA <span className="text-bluecyan"> CLUB</span>
@@ -35,13 +35,13 @@ export default function Hero() {
                         className="text-red"
                     ></TypewriterEffect>
                 </div>
-                <div className="w-68 h-fit sm:w-96">
+                <div className="w-68 h-fit sm:w-96 ">
                     <Image
                         alt="esperanza club logo"
-                        src={"/assets/esperanza_logo.png"}
+                        src={"/assets/icon_logo.svg"}
                         height={256 * 2}
                         width={256 * 2}
-                        className="animate-rotate"
+                        className="animate-rotate mb-16 h-36 md:h-52"
                     />
 
                     <SparklesPreview />
