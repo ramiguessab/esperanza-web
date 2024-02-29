@@ -7,7 +7,7 @@ import Web3 from "@/components/registration/Forms/Web3"
 
 export default function Home() {
     return (
-        <main className="bg-slate-900 h-screen flex flex-col justify-center items-center gap-4">
+        <main className="bg-slate-900 h-screen flex flex-col justify-center items-center gap-4 text-center">
             <Image
                 alt="esperanza club logo"
                 src={"/assets/icon_logo.svg"}
