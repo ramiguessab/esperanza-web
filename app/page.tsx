@@ -8,12 +8,11 @@ export default function Home() {
     return (
         <main className="bg-background3 min-h-screen text-white">
             <Hero />
-            <div className="">
+            {/* <div className="">
                 <Competition/>
             <Web2></Web2>
             <Web3></Web3>
-            </div>
-            
+            </div> */}
         </main>
     )
 }
