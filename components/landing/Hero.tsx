@@ -23,7 +23,7 @@ export default function Hero() {
             <div className=" lg:flex-row flex flex-col-reverse items-center md:justify-between  justify-center h-full">
                 <div className="">
                     <h1 className=" text-4xl md:text-5xl font-bold">
-                        ESPERANZA <span className="text-bluecyan"> CLUB</span>
+                        <span className="text-bluecyan"> CLUB</span>
                     </h1>
 
                     <TextGenerateEffect
