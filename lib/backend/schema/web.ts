@@ -1,8 +1,9 @@
-import { pgTable, varchar, pgEnum } from "drizzle-orm/pg-core"
+import { pgTable, varchar, pgEnum, bigserial } from "drizzle-orm/pg-core"
 
 export const web_conferences_enum = pgEnum("web_conferences", ["web2", "web3"])
 
 export const web = pgTable("web", {
+    id: bigserial("id", { mode: "bigint" }).primaryKey(),
     full_name: varchar("full_name").notNull(),
     email: varchar("email").notNull(),
     academic_year: varchar("academic_year").notNull(),

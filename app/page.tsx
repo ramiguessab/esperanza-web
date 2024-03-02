@@ -1,13 +1,14 @@
 import React from "react"
 import Image from "next/image"
+import { FaFacebook } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa"
+import { FaTiktok } from "react-icons/fa"
 import RegistrationButton from "@/components/registration/Button"
-import Competition from "@/components/registration/Forms/Competition"
-import Web2 from "@/components/registration/Forms/Web2"
-import Web3 from "@/components/registration/Forms/Web3"
 
 export default function Home() {
     return (
-        <main className="bg-slate-900 h-screen flex flex-col justify-center items-center gap-4 text-center">
+        <main className="h-screen flex flex-col justify-center items-center gap-4 text-center">
             <Image
                 alt="esperanza club logo"
                 src={"/assets/icon_logo.svg"}
@@ -23,6 +24,34 @@ export default function Home() {
             </h2>
             <h3 className="text-xl font-medium">For Those Who Have Passion</h3>
             <RegistrationButton />
+            <br />
+            <h1 className="text-xl font-semibold">Follow Us</h1>
+            <div className="flex gap-5">
+                <a
+                    href="https://www.facebook.com/esperanzaclub1"
+                    target="_blank"
+                >
+                    <FaFacebook className="size-7" />
+                </a>
+                <a
+                    href="https://www.instagram.com/esperanza_club/"
+                    target="_blank"
+                >
+                    <FaInstagram className="size-7" />
+                </a>
+                <a
+                    href="https://www.tiktok.com/@esperanza.club?_t=8kJsEKxlNA6&_r=1"
+                    target="_blank"
+                >
+                    <FaTiktok className="size-7" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/company/esperanza-club/posts/?feedView=all"
+                    target="_blank"
+                >
+                    <FaLinkedin className="size-7" />
+                </a>
+            </div>
         </main>
     )
 }

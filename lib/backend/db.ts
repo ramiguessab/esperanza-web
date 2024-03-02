@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/postgres-js"
 import postgres from "postgres"
-import { web } from "./schema/web"
-import { compitition } from "./schema/compitition"
+import * as web from "./schema/web"
+import * as compitition from "./schema/compitition"
 import "dotenv/config"
 
 const supabase = process.env.SUPABASE_CONNECTION_STRING!
