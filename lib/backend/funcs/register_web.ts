@@ -1,8 +1,8 @@
 "use server"
 import { db } from "../db"
 
-import { web, ISelectWeb } from "../schema/web"
+import { web, IInsertWeb } from "../schema/web"
 
-export async function register_web(values: ISelectWeb) {
+export async function register_web(values: IInsertWeb) {
     return db.insert(web).values(values)
 }
