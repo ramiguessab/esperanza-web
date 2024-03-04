@@ -1,0 +1,1 @@
+ALTER TABLE "compitition" ALTER COLUMN "member4" DROP NOT NULL;

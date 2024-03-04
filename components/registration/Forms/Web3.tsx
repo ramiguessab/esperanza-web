@@ -56,7 +56,11 @@ export default function Web3Form() {
             <form
                 onSubmit={form.handleSubmit((values) => {
                     toast.promise(
-                        register_web({ ...values, conference: "web3" }),
+                        register_web({ ...values, conference: "web3" }).then(
+                            () => {
+                                form.reset()
+                            }
+                        ),
                         {
                             success:
                                 "You have been registred for the Web 3 conference",

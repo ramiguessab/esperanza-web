@@ -1,9 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import { FaFacebook } from "react-icons/fa"
-import { FaInstagram } from "react-icons/fa"
-import { FaLinkedin } from "react-icons/fa"
-import { FaTiktok } from "react-icons/fa"
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
+
 import RegistrationButton from "@/components/registration/Button"
 
 export default function Home() {

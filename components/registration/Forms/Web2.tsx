@@ -57,7 +57,11 @@ export default function Web2Form() {
             <form
                 onSubmit={form.handleSubmit((values) => {
                     toast.promise(
-                        register_web({ ...values, conference: "web2" }),
+                        register_web({ ...values, conference: "web2" }).then(
+                            () => {
+                                form.reset()
+                            }
+                        ),
                         {
                             success:
                                 "You have been registred for the Web 2 conference",

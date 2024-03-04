@@ -7,7 +7,7 @@ export const compitition = pgTable("compitition", {
     member1: varchar("member1").notNull(),
     member2: varchar("member2").notNull(),
     member3: varchar("member3").notNull(),
-    member4: varchar("member4").notNull(),
+    member4: varchar("member4"),
     team_level: varchar("team_level").notNull(),
 })
 
