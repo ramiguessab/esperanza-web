@@ -17,8 +17,10 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="en" className="dark">
-            <body className={`${inter.className} bg-slate-900`}>
+        <html lang="en">
+            <body
+                className={`${inter.className} bg-[#272F74]/10 prose-slate selection:bg-slate-900 selection:text-slate-200`}
+            >
                 <Toaster />
                 {children}
             </body>

@@ -19,9 +19,7 @@ const config = {
         },
         extend: {
             colors: {
-                background3: "#0a173d",
-                background2: "#172554",
-                bluecyan: "#159CCC",
+                envsaion_blue: "#272F74",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -72,19 +70,34 @@ const config = {
                 },
 
                 "rotate-lr": {
-                    "0%": { transform: "rotateY(0deg)" },
-                    "50%": { transform: "rotateY(180deg)" },
-                    "100%": { transform: "rotateY(360deg)" },
+                    "0%": { transform: "rotateY(0deg)", opacity: "100%" },
+                    "50%": { transform: "rotateY(180deg)", opacity: "100%" },
+                    "100%": { transform: "rotateY(0deg)", opacity: "100%" },
+                },
+                "slide-in-left": {
+                    "0%": { transform: "translateX(60vw)" },
+                    "50%": { transform: "translateX(0vw)" },
+                    "100%": { transform: "translateX(-60vw)" },
+                },
+                "costume-pulse": {
+                    "0%": { scale: "100%" },
+                    "50%": { scale: "120%" },
+                    "75%": { scale: "100%" },
                 },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 rotate: "rotate-lr 6s ease-in-out infinite",
+                "costume-pulse": "costume-pulse 1s ease-in-out infinite",
+                "slide-in-left": "slide-in-left 4s ease-in-out infinite",
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+        require("tailwindcss-animate"),
+        require("@tailwindcss/typography"),
+    ],
 } satisfies Config
 
 export default config
