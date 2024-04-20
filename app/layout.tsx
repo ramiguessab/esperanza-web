@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.className} bg-[#272F74]/10 prose-slate selection:bg-slate-900 selection:text-slate-200`}
+                className={`${inter.className} bg-gradient-to-b from-envsaion_blue/20 to-envsaion_blue/0 prose-slate selection:bg-slate-900 selection:text-slate-200`}
             >
                 <Toaster />
                 {children}
