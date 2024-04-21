@@ -18,7 +18,7 @@ interface WebTableProps {
 export default function WebTable({ participants }: WebTableProps) {
     return (
         <Table>
-            <TableHeader>
+            <TableHeader className="sticky top-0 bg-slate-50 w-screen">
                 <TableRow>
                     <TableHead>Full Name</TableHead>
                     <TableHead>Email</TableHead>

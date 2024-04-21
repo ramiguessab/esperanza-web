@@ -1,4 +1,4 @@
-import { pgTable, varchar, bigserial } from "drizzle-orm/pg-core"
+import { pgTable, varchar, bigserial, boolean } from "drizzle-orm/pg-core"
 
 export const envision = pgTable("envision", {
     id: bigserial("id", { mode: "bigint" }).primaryKey(),
@@ -9,6 +9,7 @@ export const envision = pgTable("envision", {
     year_of_study: varchar("year_of_study").notNull(),
     reason: varchar("reason").notNull(),
     what_startup_means: varchar("what_startup_means").notNull(),
+    accepted: boolean("accepted").notNull().default(false),
 })
 
 export type IInsertEnvision = typeof envision.$inferInsert

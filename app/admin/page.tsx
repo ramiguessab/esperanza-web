@@ -22,6 +22,14 @@ export default function Page() {
                     Compitition
                 </Button>
             </Link>
+            <Link href={"/admin/envision"}>
+                <Button
+                    variant={"outline"}
+                    className="font-extrabold text-4xl p-8"
+                >
+                    Envision
+                </Button>
+            </Link>
         </div>
     )
 }

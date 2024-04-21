@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/sonner"
-import { Inter } from "next/font/google"
+import { Inter, Roboto } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+    subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
     title: "Esperanza Club",
@@ -19,7 +21,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.className} bg-gradient-to-b from-envsaion_blue/20 to-envsaion_blue/0 prose-slate selection:bg-slate-900 selection:text-slate-200`}
+                className={`${inter.className} bg-gradient-to-b from-envsaion_blue/20 to-envsaion_blue/0 prose-slate selection:bg-slate-900 selection:text-slate-200 min-h-screen`}
             >
                 <Toaster />
                 {children}
