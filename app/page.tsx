@@ -28,7 +28,7 @@ export default function Home() {
 
             <h2 className="text-3xl font-extrabold">
                 Registration are opened for{" "}
-                <span className="text-envsaion_blue">Envastion Event</span>
+                <span className="text-envsaion_blue">Envision Event</span>
             </h2>
             <div className="flex flex-col justify-center items-center text-center">
                 <h1 className="text-3xl uppercase font-bold">
