@@ -7,8 +7,8 @@ import RegistrationButton from "@/components/registration/Button"
 
 export default function Home() {
     return (
-        <main className="h-screen flex flex-col gap-4 justify-center items-center text-center text-slate-800">
-            <div className="absolute top-4 left-4 bg-envsaion_blue p-2 rounded-lg">
+        <main className="h-screen flex flex-col gap-4 justify-center items-center text-center ">
+            <div className="absolute top-4 left-4 bg-envision_blue p-2 rounded-lg">
                 <Image
                     alt="esperanza club logo"
                     src={"/assets/icon_logo.svg"}
@@ -28,11 +28,11 @@ export default function Home() {
 
             <h2 className="text-3xl font-extrabold">
                 Registration are opened for{" "}
-                <span className="text-envsaion_blue">Envision Event</span>
+                <span className="text-envision_blue">Envision Event</span>
             </h2>
             <div className="flex flex-col justify-center items-center text-center">
                 <h1 className="text-3xl uppercase font-bold">
-                    Esperanza <span className="text-envsaion_blue">Club</span>
+                    Esperanza <span className="text-envision_blue">Club</span>
                 </h1>
                 <h3 className="text-sm font-semibold">
                     We Live Once,Let&apos;s Leave a Print

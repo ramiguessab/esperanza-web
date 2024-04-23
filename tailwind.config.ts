@@ -19,7 +19,7 @@ const config = {
         },
         extend: {
             colors: {
-                envsaion_blue: "#272F74",
+                envision_blue: "#272F74",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
