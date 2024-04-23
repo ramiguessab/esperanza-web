@@ -5,9 +5,9 @@ import * as compitition from "./schema/compitition"
 import * as envision from "./schema/envision"
 import "dotenv/config"
 
-const supabase = process.env.SUPABASE_CONNECTION_STRING!
+const SUPABASE_CONNECTION_STRING = process.env.SUPABASE_CONNECTION_STRING!
 
-const client = postgres(supabase)
+const client = postgres(SUPABASE_CONNECTION_STRING)
 
 export const db = drizzle(client, {
     schema: { ...web, ...compitition, ...envision },
