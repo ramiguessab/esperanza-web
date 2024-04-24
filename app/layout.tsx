@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/sonner"
 import { Inter, Roboto } from "next/font/google"
+import CSPostHogProvider from "@/components/Posthog"
 import "./globals.css"
 
 const inter = Inter({
@@ -20,12 +21,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${inter.className} bg-gradient-to-b from-envision_blue/20 to-envision_blue/0 prose-slate text-slate-800 selection:bg-slate-900 selection:text-slate-200 min-h-screen`}
-            >
-                <Toaster />
-                {children}
-            </body>
+            <CSPostHogProvider>
+                <body
+                    className={`${inter.className} bg-gradient-to-b from-envision_blue/20 to-envision_blue/0 prose-slate text-slate-800 selection:bg-slate-900 selection:text-slate-200 min-h-screen`}
+                >
+                    <Toaster />
+                    {children}
+                </body>
+            </CSPostHogProvider>
         </html>
     )
 }
