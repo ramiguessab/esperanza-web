@@ -75,9 +75,10 @@ const config = {
                     "100%": { transform: "rotateY(0deg)", opacity: "100%" },
                 },
                 "slide-in-left": {
-                    "0%": { transform: "translateX(60vw)" },
-                    "50%": { transform: "translateX(0vw)" },
-                    "100%": { transform: "translateX(-60vw)" },
+                    "0%": { transform: "translateX(-100%)" },
+                    "50%": { transform: "translateX(0%)" },
+                    "75%": { transform: "translateX(100%)" },
+                    "100%": { transform: "translateX(100%)" },
                 },
                 "costume-pulse": {
                     "0%": { scale: "100%" },
@@ -90,7 +91,7 @@ const config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
                 rotate: "rotate-lr 6s ease-in-out infinite",
                 "costume-pulse": "costume-pulse 1s ease-in-out infinite",
-                "slide-in-left": "slide-in-left 4s ease-in-out infinite",
+                "slide-in-left": "slide-in-left 4s linear infinite",
             },
         },
     },

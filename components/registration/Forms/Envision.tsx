@@ -3,6 +3,7 @@ import * as z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { register_compititions } from "@/lib/backend/funcs/register_envision"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
     Form,
     FormControl,
@@ -46,6 +47,9 @@ const formSchema = z.object({
     what_startup_means: z.string().min(20, {
         message: "More Words Please",
     }),
+    lunch_fees: z.literal<boolean>(true, {
+        errorMap: () => ({ message: "You must accept lunch fees" }),
+    }),
 })
 
 export default function EnvisionForm() {
@@ -59,6 +63,7 @@ export default function EnvisionForm() {
             reason: "",
             what_startup_means: "",
             year_of_study: "",
+            lunch_fees: false,
         },
     })
     return (
@@ -86,7 +91,7 @@ export default function EnvisionForm() {
                             <FormItem>
                                 <div className="flex flex-row justify-between">
                                     <FormLabel>First Name</FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -105,7 +110,7 @@ export default function EnvisionForm() {
                             <FormItem>
                                 <div className="flex flex-row justify-between">
                                     <FormLabel>Last Name</FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -124,7 +129,7 @@ export default function EnvisionForm() {
                             <FormItem>
                                 <div className="flex flex-row justify-between">
                                     <FormLabel>Email Address</FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -148,7 +153,7 @@ export default function EnvisionForm() {
                             <FormItem>
                                 <div className="flex flex-row justify-between">
                                     <FormLabel>Major</FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -171,7 +176,7 @@ export default function EnvisionForm() {
                             <FormItem>
                                 <div className="flex flex-row justify-between">
                                     <FormLabel>Year of study?</FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -191,7 +196,7 @@ export default function EnvisionForm() {
                                     <FormLabel>
                                         Why are you interested to come?
                                     </FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -214,7 +219,7 @@ export default function EnvisionForm() {
                                     <FormLabel>
                                         Define startup with your style?
                                     </FormLabel>
-                                    <FormMessage />
+                                    <FormMessage className="text-xs" />
                                 </div>
 
                                 <FormControl>
@@ -223,6 +228,36 @@ export default function EnvisionForm() {
                                         className="resize-none"
                                     />
                                 </FormControl>
+                            </FormItem>
+                        )
+                    }}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="lunch_fees"
+                    render={({ field }) => {
+                        return (
+                            <FormItem>
+                                <div className="flex flex-row justify-between">
+                                    <FormLabel>Lunch Fees</FormLabel>
+                                    <FormMessage className="text-xs" />
+                                </div>
+                                <div className="flex flex-row items-center gap-2 ">
+                                    <FormControl>
+                                        <Checkbox
+                                            id="lunch fee"
+                                            checked={field.value}
+                                            onCheckedChange={field.onChange}
+                                        />
+                                    </FormControl>
+                                    <FormLabel
+                                        htmlFor="lunch fee"
+                                        className="font-bold text-sm"
+                                    >
+                                        Check to accept small lunch fee (200DZA)
+                                    </FormLabel>
+                                </div>
                             </FormItem>
                         )
                     }}

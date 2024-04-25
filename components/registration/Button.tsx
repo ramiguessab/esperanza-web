@@ -11,7 +11,7 @@ export default function Registration() {
             <Dialog.DialogTrigger asChild>
                 <Button
                     size={"lg"}
-                    className="py-4 font-semibold text-xl animate-costume-pulse"
+                    className="overflow-clip relative py-4 font-semibold text-xl before:content-[''] before:absolute before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:z-10 before:via-slate-600/90 before:rotate-45 before:to-transparent before:top-0 before:animate-slide-in-left"
                 >
                     Register Now!!!
                 </Button>

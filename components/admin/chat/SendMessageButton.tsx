@@ -30,13 +30,11 @@ export default function SendMessageButton() {
     return (
         <Form {...form}>
             <form
-                className="flex flex-row gap-4"
+                className="flex flex-row gap-4 items-end"
                 onSubmit={form.handleSubmit(({ message }) => {
                     toast.promise(
                         supabase
-                            .channel("messages", {
-                                config: { broadcast: { self: true } },
-                            })
+                            .channel("messages")
                             .send({
                                 event: "message_sent",
                                 type: "broadcast",
@@ -60,11 +58,19 @@ export default function SendMessageButton() {
                     name="message"
                     render={({ field }) => {
                         return (
-                            <FormItem className="w-full">
+                            <FormItem className="w-full relative">
                                 <FormControl>
                                     <Input
                                         placeholder="..."
                                         {...field}
+                                        onChange={(evt) => {
+                                            // supabase.channel("messages").send({
+                                            //     event: "someone_typing",
+                                            //     type: "broadcast",
+                                            //     payload: { data: "" },
+                                            // })
+                                            field.onChange(evt)
+                                        }}
                                         className={twMerge(
                                             form.formState.errors.message
                                                 ? "border-red-800 border-2"
@@ -76,7 +82,7 @@ export default function SendMessageButton() {
                         )
                     }}
                 />
-                <Button onClick={() => {}}>Send</Button>
+                <Button>Send</Button>
             </form>
         </Form>
     )
