@@ -1,5 +1,6 @@
 "use client"
 import * as z from "zod"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { register_compititions } from "@/lib/backend/funcs/register_envision"
@@ -53,6 +54,7 @@ const formSchema = z.object({
 })
 
 export default function EnvisionForm() {
+    const [submited, setSubmited] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -66,14 +68,21 @@ export default function EnvisionForm() {
             lunch_fees: false,
         },
     })
+
     return (
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit((values) => {
+                    setSubmited(true)
                     toast.promise(
-                        register_compititions(values).then(() => {
-                            form.reset()
-                        }),
+                        register_compititions(values)
+                            .then(() => {
+                                form.reset()
+                            })
+                            .catch((err) => {
+                                setSubmited(false)
+                                throw err
+                            }),
                         {
                             success: "You have been registred for Envision",
                             error: "Error",
@@ -263,7 +272,9 @@ export default function EnvisionForm() {
                     }}
                 />
 
-                <Button type="submit">Submit</Button>
+                <Button type="submit" disabled={submited}>
+                    Submit
+                </Button>
             </form>
         </Form>
     )
