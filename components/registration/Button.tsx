@@ -16,7 +16,7 @@ export default function Registration() {
                     Register Now!!!
                 </Button>
             </Dialog.DialogTrigger>
-            <Dialog.DialogContent>
+            <Dialog.DialogContent className="max-h-screen overflow-scroll">
                 <Dialog.DialogHeader>
                     <Dialog.DialogTitle>
                         Envision Event Registration Form

@@ -48,9 +48,7 @@ const formSchema = z.object({
     what_startup_means: z.string().min(20, {
         message: "More Words Please",
     }),
-    lunch_fees: z.literal<boolean>(true, {
-        errorMap: () => ({ message: "You must accept lunch fees" }),
-    }),
+    lunch: z.boolean(),
 })
 
 export default function EnvisionForm() {
@@ -65,7 +63,7 @@ export default function EnvisionForm() {
             reason: "",
             what_startup_means: "",
             year_of_study: "",
-            lunch_fees: false,
+            lunch: false,
         },
     })
 
@@ -244,7 +242,7 @@ export default function EnvisionForm() {
 
                 <FormField
                     control={form.control}
-                    name="lunch_fees"
+                    name="lunch"
                     render={({ field }) => {
                         return (
                             <FormItem>
