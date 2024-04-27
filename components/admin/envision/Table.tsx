@@ -22,7 +22,6 @@ interface EnvisionTableProps {
 
 export default function EnvisionTable({ participants }: EnvisionTableProps) {
     const [liveParticipants, setLiveParcipants] = useState(participants)
-    console.log("live participants", liveParticipants)
     useEffect(() => {
         const channels = supabase
             .channel("custom-all-channel")
@@ -58,6 +57,7 @@ export default function EnvisionTable({ participants }: EnvisionTableProps) {
                     <TableHead>Major</TableHead>
                     <TableHead>Year Of Study</TableHead>
                     <TableHead>What Startup Means</TableHead>
+                    <TableHead>Lunch</TableHead>
                     <TableHead>Accepted</TableHead>
                 </TableRow>
             </TableHeader>
@@ -71,6 +71,7 @@ export default function EnvisionTable({ participants }: EnvisionTableProps) {
                         <TableCell>{participant.major}</TableCell>
                         <TableCell>{participant.year_of_study}</TableCell>
                         <TableCell>{participant.what_startup_means}</TableCell>
+                        <TableCell>{participant.lunch ? "✅" : "❌"}</TableCell>
                         <TableCell>
                             {participant.accepted ? "✅" : "❌"}
                         </TableCell>
