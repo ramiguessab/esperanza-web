@@ -22,7 +22,7 @@ export default function Stats({ participants }: StatsProps) {
                 onClick={() => {
                     setOpened(true)
                 }}
-                className="absolute bottom-4 left-2 p-6 z-50"
+                className="fixed bottom-4 left-2 p-6 z-50"
             >
                 <div className="">
                     <ImStatsBars size={32} />
@@ -32,7 +32,7 @@ export default function Stats({ participants }: StatsProps) {
     }
 
     return (
-        <div className="bg-slate-900 text-slate-50 flex flex-row gap-4 items-center absolute bottom-2 left-1/2 -translate-x-1/2 border p-4 z-50 rounded-md">
+        <div className="bg-slate-900 text-slate-50 flex flex-row gap-4 items-center fixed bottom-2 left-1/2 -translate-x-1/2 border p-4 z-50 rounded-md">
             <div className="flex flex-col">
                 <span>
                     Total:{" "}
