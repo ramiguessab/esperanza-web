@@ -70,9 +70,9 @@ export default function Home() {
                     </IconLink>
                 </div>
             </div>
-            <span className="absolute bottom-2 text-xs font-black">
+            {/* <span className="absolute left-2 bottom-2 text-xs font-black -z-50">
                 Esperanza-Club 2023/2024
-            </span>
+            </span> */}
         </main>
     )
 }

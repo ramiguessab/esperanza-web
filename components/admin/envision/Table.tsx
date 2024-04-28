@@ -13,6 +13,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import Stats from "./Stats"
 
 interface EnvisionTableProps {
     participants: {
@@ -22,6 +23,7 @@ interface EnvisionTableProps {
 
 export default function EnvisionTable({ participants }: EnvisionTableProps) {
     const [liveParticipants, setLiveParcipants] = useState(participants)
+
     useEffect(() => {
         const channels = supabase
             .channel("custom-all-channel")
@@ -47,40 +49,49 @@ export default function EnvisionTable({ participants }: EnvisionTableProps) {
     }, [liveParticipants])
 
     return (
-        <Table>
-            <TableHeader className="stickey top-0">
-                <TableRow>
-                    <TableHead>First Name</TableHead>
-                    <TableHead>Last Name</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Reason</TableHead>
-                    <TableHead>Major</TableHead>
-                    <TableHead>Year Of Study</TableHead>
-                    <TableHead>What Startup Means</TableHead>
-                    <TableHead>Lunch</TableHead>
-                    <TableHead>Accepted</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {Object.values(liveParticipants).map((participant) => (
-                    <TableRow key={participant.id}>
-                        <TableCell>{participant.first_name}</TableCell>
-                        <TableCell>{participant.last_name}</TableCell>
-                        <TableCell>{participant.email}</TableCell>
-                        <TableCell>{participant.reason}</TableCell>
-                        <TableCell>{participant.major}</TableCell>
-                        <TableCell>{participant.year_of_study}</TableCell>
-                        <TableCell>{participant.what_startup_means}</TableCell>
-                        <TableCell>{participant.lunch ? "✅" : "❌"}</TableCell>
-                        <TableCell>
-                            {participant.accepted ? "✅" : "❌"}
-                        </TableCell>
-                        <TableCell>
-                            <ToggleAcceptedButton participant={participant} />
-                        </TableCell>
+        <>
+            <Stats participants={liveParticipants} />
+            <Table>
+                <TableHeader className="stickey top-0">
+                    <TableRow>
+                        <TableHead>First Name</TableHead>
+                        <TableHead>Last Name</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Reason</TableHead>
+                        <TableHead>Major</TableHead>
+                        <TableHead>Year Of Study</TableHead>
+                        <TableHead>What Startup Means</TableHead>
+                        <TableHead>Lunch</TableHead>
+                        <TableHead>Accepted</TableHead>
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+                </TableHeader>
+                <TableBody>
+                    {Object.values(liveParticipants).map((participant) => (
+                        <TableRow key={participant.id}>
+                            <TableCell>{participant.first_name}</TableCell>
+                            <TableCell>{participant.last_name}</TableCell>
+                            <TableCell>{participant.email}</TableCell>
+                            <TableCell>{participant.reason}</TableCell>
+                            <TableCell>{participant.major}</TableCell>
+                            <TableCell>{participant.year_of_study}</TableCell>
+                            <TableCell>
+                                {participant.what_startup_means}
+                            </TableCell>
+                            <TableCell>
+                                {participant.lunch ? "✅" : "❌"}
+                            </TableCell>
+                            <TableCell>
+                                {participant.accepted ? "✅" : "❌"}
+                            </TableCell>
+                            <TableCell>
+                                <ToggleAcceptedButton
+                                    participant={participant}
+                                />
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </>
     )
 }
