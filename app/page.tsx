@@ -2,7 +2,7 @@ import React from "react"
 import Image from "next/image"
 import IconLink from "@/components/shared/IconLink"
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
-
+import { Button } from "@/components/ui/button"
 import RegistrationButton from "@/components/registration/Button"
 
 export default function Home() {
@@ -38,8 +38,14 @@ export default function Home() {
                     We Live Once,Let&apos;s Leave a Print
                 </h3>
             </div>
-
-            <RegistrationButton />
+            <Button
+                size={"lg"}
+                className="overflow-clip relative py-4 font-semibold text-xl before:content-[''] before:absolute before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:z-10 before:via-slate-900/90 before:rotate-45 before:to-transparent before:top-0 before:animate-slide-in-left"
+                disabled
+            >
+                See You Tomorrow
+            </Button>
+            {/* <RegistrationButton /> */}
             <br />
             <div className="flex flex-col text-center">
                 <h5 className="text-xl font-semibold">Follow Us</h5>
