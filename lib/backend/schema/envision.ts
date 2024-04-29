@@ -10,7 +10,8 @@ export const envision = pgTable("envision", {
     reason: varchar("reason").notNull(),
     what_startup_means: varchar("what_startup_means").notNull(),
     accepted: boolean("accepted").notNull().default(false),
-    lunch:boolean("lunch").notNull().default(true),
+    lunch: boolean("lunch").notNull().default(true),
+    email_sent:boolean("email_sent").notNull().default(false)
 })
 
 export type IInsertEnvision = typeof envision.$inferInsert

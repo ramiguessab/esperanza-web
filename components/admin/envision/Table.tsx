@@ -63,6 +63,7 @@ export default function EnvisionTable({ participants }: EnvisionTableProps) {
                         <TableHead>What Startup Means</TableHead>
                         <TableHead>Lunch</TableHead>
                         <TableHead>Accepted</TableHead>
+                        <TableHead>Email Sent</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -82,6 +83,9 @@ export default function EnvisionTable({ participants }: EnvisionTableProps) {
                             </TableCell>
                             <TableCell>
                                 {participant.accepted ? "✅" : "❌"}
+                            </TableCell>
+                            <TableCell>
+                                {participant.email_sent ? "✅" : "❌"}
                             </TableCell>
                             <TableCell>
                                 <ToggleAcceptedButton
