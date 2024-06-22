@@ -20,6 +20,9 @@ const config = {
         extend: {
             colors: {
                 envision_blue: "#272F74",
+                esperanza_dark_blue: "#031337",
+                esperanza_very_dark_blue: "#020B2B",
+                esperanza_cyan_blue:"#159CCC",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -68,6 +71,11 @@ const config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                flip: {
+                    '0%': { transform: 'rotateY(0deg)' },
+                    '50%': { transform: 'rotateY(180deg)' },
+                    '100%': { transform: 'rotateY(360deg)' },
+                  },
 
                 "rotate-lr": {
                     "0%": { transform: "rotateY(0deg)", opacity: "100%" },
@@ -90,6 +98,7 @@ const config = {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 rotate: "rotate-lr 6s ease-in-out infinite",
+                flip: 'flip 4s infinite',
                 "costume-pulse": "costume-pulse 1s ease-in-out infinite",
                 "slide-in-left": "slide-in-left 4s linear infinite",
             },
