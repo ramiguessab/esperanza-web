@@ -18,6 +18,15 @@ const config = {
             },
         },
         extend: {
+            screens: {
+                'xs': '475px',  // Extra small devices
+                'sm': '640px',  // Small devices (phones, 640px and up)
+                'md': '768px',  // Medium devices (tablets, 768px and up)
+                'lg': '1024px', // Large devices (desktops, 1024px and up)
+                'xl': '1280px', // Extra large devices (large desktops, 1280px and up)
+                '2lg': '1400px',
+                '2xl': '1536px' // Extra extra large devices (larger desktops, 1536px and up)
+              },
             colors: {
                 envision_blue: "#272F74",
                 esperanza_dark_blue: "#031337",
