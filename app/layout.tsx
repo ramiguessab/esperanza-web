@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { Inter, Roboto } from "next/font/google"
 import CSPostHogProvider from "@/components/Posthog"
 import Header from "@/components/interface/Header"
+import Footer from "@/components/interface/Footer"
 
 import "./globals.css"
 
@@ -25,11 +26,12 @@ export default function RootLayout({
         <html lang="en">
             <CSPostHogProvider>
                 <body
-                    className={`${inter.className} bg-esperanza_dark_blue min-h-screen`}
+                    className={`${inter.className} bg-esperanza_dark_blue min-h-screen text-white`}
                 >
                     <Header />
                     <Toaster />
                     {children}
+                    <Footer />
                 </body>
             </CSPostHogProvider>
         </html>

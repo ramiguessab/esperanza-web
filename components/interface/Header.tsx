@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 ]
 
   return (
-    <header className="bg-esperanza_very_dark_blue shadow-white py-4 sticky top-0 z-10 rounded-b-2xl">
+    <header className="bg-esperanza_very_dark_blue shadow-white py-4 sticky top-0 z-20 rounded-b-2xl">
       <div className="container mx-auto px-4 flex  items-center justify-between">
       <Link href="/" className="flex items-center">
           <img src="/assets/icon_logo.svg" alt="Logo" className="sm:h-8 h-6 w-auto" />

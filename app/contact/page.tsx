@@ -1,7 +1,9 @@
+import ContactUs from "@/components/interface/ContactUs"
 export default function Contact() {
+
     return (
         <>
-       this is contact page
-        </>
+<ContactUs />
+</>
     )
 }   
