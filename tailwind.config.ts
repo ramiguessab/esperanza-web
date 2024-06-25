@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss"
-
+import colors from "tailwindcss/colors"
+import defaultTheme from "tailwindcss/defaultTheme"
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+ 
 const config = {
     darkMode: ["class"],
     content: [
@@ -72,6 +77,11 @@ const config = {
                 sm: "calc(var(--radius) - 4px)",
             },
             keyframes: {
+                scroll: {
+                    to: {
+                      transform: "translate(calc(-50% - 0.5rem))",
+                    },
+                  },
                 "accordion-down": {
                     from: { height: "0" },
                     to: { height: "var(--radix-accordion-content-height)" },
@@ -110,13 +120,26 @@ const config = {
                 flip: 'flip 4s infinite',
                 "costume-pulse": "costume-pulse 1s ease-in-out infinite",
                 "slide-in-left": "slide-in-left 4s linear infinite",
+                scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
             },
         },
     },
     plugins: [
         require("tailwindcss-animate"),
         require("@tailwindcss/typography"),
+        [addVariablesForColors]
     ],
 } satisfies Config
 
 export default config
+function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme("colors"));
+    let newVars = Object.fromEntries(
+      Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    );
+   
+    addBase({
+      ":root": newVars,
+    });
+  }
