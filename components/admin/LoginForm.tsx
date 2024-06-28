@@ -13,6 +13,7 @@ export default function LoginForm() {
                 Login To Esperanza Admin:{" "}
             </h1>
             <Input
+            className="text-black"
                 onChange={(event) => {
                     setPassword(event.currentTarget.value)
                 }}

@@ -6,8 +6,8 @@ export default function TopPage() {
             <p className="font-bold text-3xl xs:text-4xl text-center sm:text-left">We <span className=" text-esperanza_cyan_blue">Live</span> Once, <br className='block sm:hidden'/> Let's <span className=" text-esperanza_cyan_blue">Leave</span> a Print</p>
             <div className='lg:text-2xl text-center sm:text-left text-xl font-bold'>For Those Who Have<FlipWords className=' text-esperanza_cyan_blue' words={['Passion','Curiosity','Enthusiasm']}></FlipWords></div>
             <p className='w-full lg:w-3/5 text-wrap leading-7 text-center sm:text-left'>
-                Esperanza Club is a university scientific club at university of Jijel Ben Yahia Mohammed Saddek Faculty of exact science and computer science 
-                that aims to bring together students who are passionate about science and technology. We plan to organize events, workshops, and competitions 
+                Esperanza Club is a scientific club at Mohammed Seddik Ben Yahia university in Jijel affiliated with the Faculty of exact science and computer science 
+                that aims to bring together students who are passionate about science and technology. We plan to organize events, workshops, competitions and more.
             </p>
         </div>
         <div className=' flex items-center justify-center flex-col lg:gap-20 gap-8'>

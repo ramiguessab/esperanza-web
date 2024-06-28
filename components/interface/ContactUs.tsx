@@ -1,3 +1,21 @@
+"use client"
+ 
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+ 
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { toast } from "@/components/ui/use-toast"
 import {
     Accordion,
     AccordionContent,
@@ -5,7 +23,59 @@ import {
     AccordionTrigger,
   } from "@/components/ui/accordion"
   import { MdOutlineMailOutline } from "react-icons/md";
+import { Textarea } from "../ui/textarea"
+
+const FormSchema = z.object({
+  Name: z.string().min(3, {
+    message: "Username must be at least 3 characters.",
+  }),
+  Email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  Subject: z.string().min(5, {
+    message: "Subject must be at least 5 characters.",
+  }),
+  Message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+})
+ 
+function onSubmit(data: z.infer<typeof FormSchema>) {
+  console.log(data)
+  console.log(data.Name)
+  console.log(data.Email)
+  console.log(data.Subject)
+  console.log(data.Message)
+
+  toast({
+    title: "You submitted the following values:",
+    description: (
+      <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+        <p>
+          Name: {data.Name}
+          <br />
+          Email: {data.Email}
+          <br />
+          Subject: {data.Subject}
+          <br />
+          Message: {data.Message}
+        </p>
+      </pre>
+    ),
+  })
+}
+
 export default function ContactUs() {
+
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      Name: "",
+      Email: "",
+      Subject: "",
+      Message: "",
+    },
+  })
     return (
         <div className="flex flex-wrap justify-around md:h-[calc(100vh-4rem)] items-center mt-8 md:mt-0">
             <div className="w-full h-full md:w-1/3 px-8 md:px-0 mb-10 md:mb-0 flex flex-col justify-evenly">
@@ -35,57 +105,71 @@ export default function ContactUs() {
             </div>
             <div className="flex items-center justify-center md:w-1/2 w-full px-8 md:px-0 mb-8">
       <div className="w-full lg:w-3/4 p-10 bg-esperanza_very_dark_blue bg-opacity-90 shadow-lg rounded-3xl shadow-white">
-        <form>
-          <div className="relative mb-8">
-            
-            <label className="  text-base text-white pointer-events-none transition-all duration-300 ease-in-out transform">
-              Name
-            </label>
-            <input
-              type="text"
-              required
-              className="w-full  text-base text-white bg-transparent border-b border-white focus:outline-none focus:border-gray-400"
-            />
-          </div>
-          <div className="relative mb-8">
-            
-            <label className=" text-base text-white pointer-events-none transition-all duration-300 ease-in-out transform">
-              Email
-            </label>
-            <input
-              type="email"
-              required
-              className="w-full text-base text-white bg-transparent border-b border-white focus:outline-none focus:border-gray-400"
-            />
-          </div>
-          <div className="relative mb-8">
-            
-            <label className="  text-base text-white pointer-events-none transition-all duration-300 ease-in-out transform">
-              Subject
-            </label>
-            <input
-              type="text"
-              required
-              className="w-full  text-base text-white bg-transparent border-b border-white focus:outline-none focus:border-gray-400"
-            />
-          </div>
-          <div className="relative mb-8">
-            
-            <label className="  text-base text-white pointer-events-none transition-all duration-300 ease-in-out transform">
-              Message
-            </label>
-            <textarea name="" id="" className="w-full  text-base text-white bg-transparent border-b border-white focus:outline-none focus:border-gray-400"></textarea>
-          </div>
-          
-          <div className="text-center">
-            <a
-              href="#"
-              className="relative inline-block px-5 py-2.5 text-base text-white uppercase transition-all duration-300 ease-in-out bg-transparent border border-white rounded-md hover:bg-esperanza_cyan_blue hover:text-white hover:border-esperanza_cyan_blue"
-            >
-              Send
-            </a>
-          </div>
-        </form>
+
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+          control={form.control}
+          name="Name"
+          render={({field}) =>(
+            <FormItem className="my-4">
+            <FormLabel>Name</FormLabel>
+            <FormControl>
+                <Input placeholder="Your Name" {...field} className="w-full  text-base text-white bg-transparent border-esperanza_very_dark_blue border-b-gray-400 border-b-2"/>
+            </FormControl>
+            <FormMessage />
+            </FormItem>
+          )}
+          />
+          <FormField
+          control={form.control}
+          name="Email"
+          render={({field}) =>(
+            <FormItem className="my-4">
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+                <Input placeholder="Your Email" {...field} className="w-full  text-base text-white bg-transparent border-esperanza_very_dark_blue border-b-gray-400 border-b-2"/>
+            </FormControl>
+            <FormMessage />
+            </FormItem>
+          )}
+          />
+          <FormField 
+          control={form.control}
+          name="Subject"
+          render={({field}) =>(
+            <FormItem className="my-4">
+            <FormLabel>Subject</FormLabel>
+            <FormControl>
+                <Input placeholder="What's the Subject" {...field} className="w-full  text-base text-white bg-transparent border-esperanza_very_dark_blue border-b-gray-400 border-b-2"/>
+            </FormControl>
+            <FormMessage />
+            </FormItem>
+          )}
+          />
+          <FormField
+          control={form.control}
+          name="Message"
+          render={({ field }) => (
+            <FormItem className="my-4">
+              <FormLabel>Message Content</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="What would you like to say?"
+                  className="resize-none w-full  text-base text-white bg-transparent  border-esperanza_very_dark_blue border-b-gray-400 border-b-2"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+           <Button type="submit" 
+           className=" table mx-auto px-5 py-2.5 text-base text-white uppercase transition-all duration-300 ease-in-out bg-transparent border border-white rounded-md hover:bg-esperanza_cyan_blue hover:text-white hover:border-esperanza_cyan_blue"
+           >Submit</Button>
+          </form>
+      </Form>
+        
       </div>
     </div>
 

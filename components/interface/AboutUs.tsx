@@ -1,9 +1,9 @@
 export default function AboutUs() {
     return (
         <div className="flex flex-wrap-reverse text-white items-center justify-around lg:h-[calc(100vh-4rem)]">
-            <div className="w-5/6 md:w-1/2 lg:w-1/3 flex flex-col gap-8">
-                <img src="/assets/_MG_6787.jpg" alt="" className=" rotate-6 " />
-                <img src="/assets/IMG_4877.JPG" alt="" className="-rotate-6 "/>
+            <div className="w-5/6 md:w-1/2 lg:w-1/3 flex flex-col gap-9">
+                <img src="/assets/Team.png" alt="team" className=" -rotate-6 " />
+                <img src="/assets/sticker.png" alt="sticker" className="rotate-6 "/>
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-evenly h-full text-sm p-2 ">
                 <div className="border-dotted border-2 border-sky-500 p-6 rounded-lg leading-7 mb-2 ">

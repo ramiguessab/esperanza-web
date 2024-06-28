@@ -1,7 +1,11 @@
+"use client"
 import { FaFacebook,FaInstagram,FaLinkedin,FaTiktok } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 export default function Footer() {
+    const href=["/","/events","/contact"]
+    const pathname=usePathname()
     return (
-        <footer className="bg-gradient-to-b from-esperanza_dark_blue to-esperanza_very_dark_blue text-white text-center p-4 flex flex-col gap-10 shadow-white">
+        <footer className={`${pathname===href[0]||pathname===href[1]|| pathname===href[2]  ? "bg-gradient-to-b from-esperanza_dark_blue to-esperanza_very_dark_blue text-white text-center p-4 flex flex-col gap-10 shadow-white" : 'hidden'}`}>
             <div>
                 <p className="text-2xl font-bold py-8">Follow Us</p>
             <div className="flex justify-center items-center">

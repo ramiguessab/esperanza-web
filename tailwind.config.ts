@@ -1,6 +1,4 @@
 import type { Config } from "tailwindcss"
-import colors from "tailwindcss/colors"
-import defaultTheme from "tailwindcss/defaultTheme"
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -77,6 +75,15 @@ const config = {
                 sm: "calc(var(--radius) - 4px)",
             },
             keyframes: {
+                pulse: {
+                    '0%': { transform: 'scale(0.6)', opacity: '1' },
+                    '50%': { transform: 'scale(1.2)', opacity: '0' },
+                    '100%': { transform: 'scale(0.6)', opacity: '1' },
+                  },
+                  spin: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                  },
                 scroll: {
                     to: {
                       transform: "translate(calc(-50% - 0.5rem))",
@@ -114,6 +121,8 @@ const config = {
                 },
             },
             animation: {
+                pulse: 'pulse 1s ease-in-out infinite',
+        spin: 'spin 2s linear infinite',
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 rotate: "rotate-lr 6s ease-in-out infinite",

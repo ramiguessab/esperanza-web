@@ -26,7 +26,7 @@ export default function Page() {
             <Link href={"/admin/chat"}>
                 <Button
                     variant={"outline"}
-                    className="font-extrabold text-4xl p-8 gap-4"
+                    className="font-extrabold text-4xl p-8 gap-4 text-esperanza_dark_blue"
                 >
                     <FaMessage /> Chat
                 </Button>
@@ -34,9 +34,17 @@ export default function Page() {
             <Link href={"/admin/envision"}>
                 <Button
                     variant={"outline"}
-                    className="font-extrabold text-4xl p-8"
+                    className="font-extrabold text-4xl p-8 text-esperanza_dark_blue"
                 >
                     Envision
+                </Button>
+            </Link>
+            <Link href={"/admin/Messages"}>
+                <Button
+                    variant={"outline"}
+                    className="font-extrabold text-4xl p-8 text-esperanza_dark_blue"
+                >
+                    Messages
                 </Button>
             </Link>
         </div>

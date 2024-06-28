@@ -4,10 +4,15 @@ import { usePathname } from "next/navigation";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import path from "path";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const handleLogoClick = () => {
+    window.scrollTo({
+      top:0,
+      behavior: "smooth",
+  });}
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -17,15 +22,16 @@ const Header: React.FC = () => {
     {href:"/events",label:"Events"},
     {href:"/contact",label:"Contact"},
 ]
+const href=["/","/events","/contact"]
 
   return (
-    <header className="bg-esperanza_very_dark_blue shadow-white py-4 sticky top-0 z-20 rounded-b-2xl">
+    <header className={`${pathname===href[0]||pathname===href[1]|| pathname===href[2]  ?"bg-esperanza_very_dark_blue shadow-white py-4 sticky top-0 z-20 rounded-b-2xl  " : 'hidden'} `}>
       <div className="container mx-auto px-4 flex  items-center justify-between">
-      <Link href="/" className="flex items-center">
+      <div className="flex items-center cursor-pointer" onClick={handleLogoClick}>
           <img src="/assets/icon_logo.svg" alt="Logo" className="sm:h-8 h-6 w-auto" />
           <p className="ml-4 text-lg sm:text-2xl font-bold text-gray-100">Esperanza <span className='text-esperanza_cyan_blue'>Club</span></p>
         
-        </Link>
+        </div>
         <nav className="hidden md:flex space-x-10 font-bold">
         {navLinks.map((link)=>{
             const isActive = pathname === link.href
@@ -59,7 +65,7 @@ const Header: React.FC = () => {
         {navLinks.map((link)=>{
             const isActive = pathname === link.href
             return (
-                <Link href={link.href} key={link.href} className={isActive ? " text-esperanza_cyan_blue  block " :" text-white hover:text-blue-300 block " }>{link.label}</Link>
+                <Link href={link.href} key={link.href} onClick={toggleMenu} className={isActive ? " text-esperanza_cyan_blue  block " :" text-white hover:text-blue-300 block " }>{link.label}</Link>
             )} )}
         </nav>
       </div>

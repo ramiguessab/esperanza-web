@@ -1,11 +1,11 @@
 import { Activities } from "@/components/interface/Activities"
-import { TestimonialProvider } from "@/contexts/TestimonialContext";
+import { DataProvider } from "@/contexts/Data";
 export default function Events() {
     return (
         <>
-             <TestimonialProvider>
+             <DataProvider>
       <Activities />
-    </TestimonialProvider>
+    </DataProvider>
         </>
     )
 }   
