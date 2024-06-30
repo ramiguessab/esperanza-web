@@ -1,11 +1,15 @@
 import { drizzle } from "drizzle-orm/postgres-js"
 import postgres from "postgres"
-import { web } from "./schema/web"
-import { compitition } from "./schema/compitition"
+import * as web from "./schema/web"
+import * as compitition from "./schema/compitition"
+import * as envision from "./schema/envision"
+import * as messages from "./schema/messages"
 import "dotenv/config"
 
-const supabase = process.env.SUPABASE_CONNECTION_STRING!
+const SUPABASE_CONNECTION_STRING = process.env.DATABASE_URL!
 
-const client = postgres(supabase)
+const client = postgres(SUPABASE_CONNECTION_STRING)
 
-export const db = drizzle(client, { schema: { ...web, ...compitition } })
+export const db = drizzle(client, {
+    schema: { ...web, ...compitition, ...envision, ...messages },
+})

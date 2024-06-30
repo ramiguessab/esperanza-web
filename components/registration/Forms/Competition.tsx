@@ -39,9 +39,7 @@ const formSchema = z.object({
     member3: z.string().min(1, {
         message: "Required",
     }),
-    member4: z.string().min(1, {
-        message: "Required",
-    }),
+    member4: z.string(),
     team_level: z.string().min(1, {
         message: "Required",
     }),
@@ -64,11 +62,17 @@ export default function CompetitionForm() {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit((values) => {
-                    toast.promise(register_compititions(values), {
-                        success: "You have been registred for the compition",
-                        error: "Error",
-                        loading: "We are submiting your registration",
-                    })
+                    toast.promise(
+                        register_compititions(values).then(() => {
+                            form.reset()
+                        }),
+                        {
+                            success:
+                                "You have been registred for the competition",
+                            error: "Error",
+                            loading: "We are submiting your registration",
+                        }
+                    )
                 })}
                 className="flex flex-col gap-4"
             >
@@ -191,7 +195,7 @@ export default function CompetitionForm() {
                         return (
                             <FormItem>
                                 <div className="flex flex-row justify-between">
-                                    <FormLabel>Member N°4</FormLabel>
+                                    <FormLabel>Member N°4 (optional)</FormLabel>
                                     <FormMessage />
                                 </div>
 

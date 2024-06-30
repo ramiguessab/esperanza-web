@@ -1,0 +1,133 @@
+{
+  "id": "771488df-68e4-4abc-b337-88f6b785e09b",
+  "prevId": "10aa81d2-af86-4e48-b750-172c52949157",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "compitition": {
+      "name": "compitition",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "team_name": {
+          "name": "team_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "member1": {
+          "name": "member1",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "member2": {
+          "name": "member2",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "member3": {
+          "name": "member3",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "member4": {
+          "name": "member4",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "team_level": {
+          "name": "team_level",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "web": {
+      "name": "web",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "full_name": {
+          "name": "full_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "academic_year": {
+          "name": "academic_year",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "field_of_study": {
+          "name": "field_of_study",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "interests": {
+          "name": "interests",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "conference": {
+          "name": "conference",
+          "type": "web_conferences",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {
+    "web_conferences": {
+      "name": "web_conferences",
+      "values": {
+        "web2": "web2",
+        "web3": "web3"
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

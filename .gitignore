@@ -6,6 +6,12 @@
 .pnp.js
 .yarn/install-state.gz
 
+/supabase
+
+.env
+
+/react-email-starter
+
 # testing
 /coverage
 
@@ -34,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

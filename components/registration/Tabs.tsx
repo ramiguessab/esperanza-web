@@ -8,8 +8,8 @@ export default function RegistrationTabs() {
     return (
         <Tabs className="w-full">
             <TabsList className="w-full">
-                <TabsTrigger value="compition" className="w-full">
-                    Compition
+                <TabsTrigger value="competition" className="w-full">
+                    Competition
                 </TabsTrigger>
                 <TabsTrigger value="web2" className="w-full">
                     Web 2
@@ -18,7 +18,7 @@ export default function RegistrationTabs() {
                     Web 3
                 </TabsTrigger>
             </TabsList>
-            <TabsContent value="compition">
+            <TabsContent value="competition">
                 <CompetitionForm />
             </TabsContent>
             <TabsContent value="web2">
