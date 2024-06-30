@@ -1,5 +1,6 @@
 "use client";
-import Autoplay from "embla-carousel-autoplay";
+import Autoplay from "embla-carousel-autoplay"
+
 import React from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { FlipWords } from "../ui/flip-words";
@@ -9,7 +10,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/ui/carousel"
+
 import {
   Dialog,
   DialogContent,
@@ -28,64 +30,58 @@ export function Activities() {
     { imgSrc: selectedData.imgSrc3, title: selectedData.title },
     { imgSrc: selectedData.imgSrc4, title: selectedData.title },
     { imgSrc: selectedData.imgSrc5, title: selectedData.title },
-  ] : [];
-
-  const handleCardClick = (data) => {
-    setSelectedData(data);
-    setIsDialogOpen(true);
-  };
-
+  ]:[]
+ 
   return (
-    <div className="rounded-md flex flex-col antialiased items-center justify-evenly relative overflow-hidden h-[calc(100vh-4rem)]">
+    <div className="rounded-md flex flex-col antialiased items-center justify-evenly  relative overflow-hidden h-[calc(100vh-4rem)]">
       <h1 className="text-3xl sm:text-5xl font-bold text-center py-4">
         Our <FlipWords className="text-esperanza_cyan_blue"
         words={[
-          "Events",
-          "Activities",
-          "Workshops",
-        ]} />
+         "Events",
+         "Activities",
+         "Workshops",
+        ]}/>
       </h1>
       <div className="h-96 cursor-pointer">
         <InfiniteMovingCards
           items={Datas}
           direction="right"
           speed="slow"
-          onCardClick={handleCardClick}
         />
       </div>
       {selectedData && (
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="bg-esperanza_very_dark_blue p-10 px-16">
+          <DialogContent className=" bg-esperanza_very_dark_blue p-10 px-16">
             <DialogHeader>
               <DialogTitle className="text-center">{selectedData.title}</DialogTitle>
               <br />
               <DialogDescription>
                 <Carousel plugins={[
-                  Autoplay({
-                    delay: 4000,
-                  }),
-                ]}
-                  opts={{
+                    Autoplay({
+                      delay: 4000,
+                    }),
+                    ]}
+                    opts={{
                     align: "start",
                     loop: true,
-                  }}>
-                  <CarouselContent>
-                    {carouselData.map((item, index) => (
-                      <CarouselItem key={index}>
-                        <img
-                          src={item.imgSrc}
-                          alt={item.title}
-                          className="w-96 h-96 object-cover"
-                        />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
+                    }}>
+                    <CarouselContent>
+  {carouselData.map((item, index) => (
+    <CarouselItem key={index}>
+      <img 
+        src={item.imgSrc}
+        alt={item.title}
+        className="w-96 h-96 object-cover"
+      />
+    </CarouselItem>
+  ))}
+</CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
                 </Carousel>
                 <br />
-                <p className="text-gray-300 text-center">{selectedData.date}</p>
-                <p className="text-white text-center">{selectedData.text}</p>
+                <p className=" text-gray-300 text-center">{selectedData.date}</p>
+                <p className="text-white text-center ">{selectedData.text} </p>
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
@@ -94,7 +90,6 @@ export function Activities() {
     </div>
   );
 }
-
 
 
 

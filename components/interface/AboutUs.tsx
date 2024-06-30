@@ -1,7 +1,7 @@
 export default function AboutUs() {
     return (
-        <div className="flex flex-wrap-reverse text-white items-center justify-around lg:h-[calc(100vh-4rem)]">
-            <div className="w-5/6 md:w-1/2 lg:w-1/3 flex flex-col gap-9">
+        <div className="flex flex-wrap-reverse text-white items-center justify-around lg:h-[calc(100vh-4rem)] mt-4">
+            <div className="w-5/6 md:w-1/2 lg:w-1/3 flex flex-col gap-4">
                 <img src="/assets/Team.png" alt="team" className=" -rotate-6 " />
                 <img src="/assets/sticker.png" alt="sticker" className="rotate-6 "/>
             </div>
