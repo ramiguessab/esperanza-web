@@ -3,7 +3,7 @@ export default function TopPage() {
     return (
         <div className="flex flex-wrap-reverse text-white sm:items-center justify-center  md:justify-around lg:h-[calc(100vh-4rem)] h-screen">
         <div className='w-5/6 sm:w-1/2 flex flex-col gap-8'>
-            <p className="font-bold text-3xl xs:text-4xl text-center sm:text-left">We <span className=" text-esperanza_cyan_blue">Live</span> Once, <br className='block sm:hidden'/> Let's <span className=" text-esperanza_cyan_blue">Leave</span> a Print</p>
+            <p className="font-bold text-3xl xs:text-4xl text-center sm:text-left">We <span className=" text-esperanza_cyan_blue">Live</span> Once, <br className='block sm:hidden'/> Let&apos;s <span className=" text-esperanza_cyan_blue">Leave</span> a Print</p>
             <div className='lg:text-2xl text-center sm:text-left text-xl font-bold'>For Those Who Have<FlipWords className=' text-esperanza_cyan_blue' words={['Passion','Curiosity','Enthusiasm']}></FlipWords></div>
             <p className='w-full lg:w-3/5 text-wrap leading-7 text-center sm:text-left'>
                 Esperanza Club is a scientific club at Mohammed Seddik Ben Yahia university in Jijel affiliated with the Faculty of exact science and computer science 
